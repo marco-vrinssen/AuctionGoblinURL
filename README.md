@@ -1,4 +1,4 @@
-# Auction Goblin URL Generator Addon
+# Auction Goblin URL Generator
 
 ## Addon for World of Warcraft Classic that adds a command to generate Auction Goblin URLs for hovered over items.
 
