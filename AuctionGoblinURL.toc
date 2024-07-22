@@ -1,0 +1,7 @@
+## Interface: 11503
+## Title: Auction Goblin URL
+## Notes: Adds a command to generate Auction Goblin URLs for hovered over items.
+## Version: 1.0
+## Author: MIYANKO
+
+AuctionGoblinURL.lua
