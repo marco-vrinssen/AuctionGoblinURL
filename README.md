@@ -3,9 +3,7 @@
 ## Addon for World of Warcraft Classic that adds a command to generate Auction Goblin URLs for hovered over items.
 
 ## Features
-- Provides a convenient way to generate Auction Goblin URLs for hovered items by typing `/ag` in the chat.
-- Displays the generated URL in a modal window for easy copying and pasting into a browser.
-- Enhances user experience by allowing quick access to item information on the Auction Goblin website.
+Provides a convenient way to generate Auction Goblin URLs for hovered over items while pressing CTRL + P (Windows) or CMD + P (macOS).
 
 ## Disclaimer
-This addon is being developed in collaboration with the official creator of [www.auctiongoblin.com](http://www.auctiongoblin.com).
+This addon is being developed in collaboration with the official creator of [www.auctiongoblin.com](http://www.auctiongoblin.com) and is considered a fan project.
