@@ -24,10 +24,13 @@ jobs:
     - name: Build addon
       run: npm run build
 
+    - name: Package addon files
+      run: zip -r AuctionGoblinURL.zip AuctionGoblinURL.lua AuctionGoblinURL.toc
+
     - name: Upload to CurseForge
       uses: itsmeow/curseforge-upload@v1
       with:
         api-token: ${{ secrets.CURSEFORGE_API_TOKEN }}
         project-id: 1071589
-        file: path/to/your/addon.zip
+        file: AuctionGoblinURL.zip
         package-as: AuctionGoblinURL.zip
