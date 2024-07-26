@@ -1,5 +1,9 @@
 local frame = CreateFrame("Frame", "ItemLinkFrame", UIParent)
 
+
+
+
+
 -- StaticPopupDialog for item link URL
 StaticPopupDialogs["ITEM_LINK_URL"] = {
     text = "Copy and paste this URL into your browser.",
