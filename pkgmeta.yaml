@@ -1,8 +1,1 @@
-package-as: AuctionGoblinURL.zip
-
-ignore:
-  - .github/
-  - .git/
-  - .gitignore
-  - README.md
-  - pkgmeta.yaml
+package-as: AuctionGoblinURL
