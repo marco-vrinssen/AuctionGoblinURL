@@ -14,9 +14,10 @@ StaticPopupDialogs["ITEM_LINK_URL"] = {
         self.editBox:HighlightText()
         self.editBox:SetFocus()
         self.editBox:SetScript("OnKeyDown", function(_, key)
+            local isMac = IsMacClient()
             if key == "ESCAPE" then
                 self:Hide()
-            elseif IsModifierKeyDown() and key == "C" then
+            elseif (isMac and IsMetaKeyDown() or IsControlKeyDown()) and key == "C" then
                 self:Hide()
             end
         end)
@@ -33,13 +34,13 @@ local function ShowItemLinkPopup(itemID)
     StaticPopup_Show("ITEM_LINK_URL", "", "", PopupDataFill)
 end
 
--- Function to handle the /ag command
-SLASH_ITEMHISTORY1 = "/ag"
-SlashCmdList["ITEMHISTORY"] = function()
+-- Function to handle the item click with modifier key
+local function OnModifierClick()
     if frame.itemLink then
         local itemID = frame.itemLink:match("item:(%d+):")
         if itemID then
-            ShowItemLinkPopup(itemID)
+            -- Add a 250ms delay before showing the popup
+            C_Timer.After(0.25, function() ShowItemLinkPopup(itemID) end)
         else
             print("No item ID found.")
         end
@@ -59,3 +60,20 @@ frame:SetScript("OnUpdate", function(self, elapsed)
         frame.itemLink = nil
     end
 end)
+
+-- Create a frame to handle key detection without interfering with the game
+local keyFrame = CreateFrame("Frame", "KeyDetectFrame", UIParent)
+keyFrame:SetPropagateKeyboardInput(true)
+keyFrame:SetScript("OnKeyDown", function(self, key)
+    local isMac = IsMacClient()
+    if key == "P" and (IsControlKeyDown() or (isMac and IsMetaKeyDown())) then
+        OnModifierClick()
+    end
+end)
+
+keyFrame:EnableKeyboard(true)
+keyFrame:SetPoint("CENTER")
+keyFrame:SetSize(1, 1)
+
+-- Test message to ensure the script is loaded
+print("Custom key combination script loaded.")
